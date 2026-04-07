@@ -1,0 +1,330 @@
+/* ==========================
+   RESET E CONFIGURAÇÕES GERAIS
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baloo 2", sans-serif;
+}
+
+body {
+  background-image: url("/imgs/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #222;
+}
+
+/* ==========================
+   NAVBAR (TOPO)
+========================== */
+.topo {
+  background: #ffcc00;
+  border-bottom: 4px solid #000;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo span {
+  font-size: 28px;
+  font-weight: 800;
+  color: #000;
+  text-shadow: 2px 2px 0px #fff;
+}
+
+.logo-img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.menu a {
+  text-decoration: none;
+  margin-left: 15px;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  background: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  color: black;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  background: #ff6666;
+  transform: scale(1.1);
+}
+
+/* ==========================
+   CONTEÚDO PRINCIPAL
+========================== */
+.conteudo {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+}
+
+.conteudo h1 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #000;
+  text-shadow: 3px 3px 0px #fff;
+}
+
+.conteudo p {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #000;
+  font-weight: 600;
+}
+
+/* ==========================
+   CAIXA PADRÃO (para textos)
+========================== */
+.caixa {
+  background: rgba(255, 255, 255, 0.85);
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 6px 6px 0px black;
+}
+
+/* ==========================
+   BOTÕES
+========================== */
+.botao {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #ff4444;
+  border: 4px solid black;
+  border-radius: 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  transition: 0.2s;
+  box-shadow: 4px 4px 0px black;
+}
+
+.botao:hover {
+  background: #00c853;
+  transform: translateY(-4px);
+}
+
+/* ==========================
+   LISTA DE PERSONAGENS
+========================== */
+.lista-personagens {
+  max-width: 950px;
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.personagem-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: white;
+  border: 4px solid black;
+  border-radius: 20px;
+  padding: 15px;
+
+  text-decoration: none;
+  color: black;
+
+  box-shadow: 6px 6px 0px black;
+  transition: 0.2s;
+}
+
+.personagem-item:hover {
+  transform: translateY(-5px);
+  background: #fff3cd;
+}
+
+.personagem-img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+
+  border: 3px solid black;
+  border-radius: 15px;
+  background: #e3f6ff;
+  padding: 8px;
+}
+
+.personagem-info {
+  text-align: left;
+}
+
+.personagem-info h2 {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.personagem-info p {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ==========================
+   DETALHES DO PERSONAGEM
+========================== */
+.detalhe-img {
+  width: 280px;
+  max-width: 90%;
+  margin: 20px auto;
+  display: block;
+  border: 4px solid black;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 6px 6px 0px black;
+  padding: 10px;
+}
+
+.caixa-historia {
+  background: #ffcc00;
+  border: 4px solid black;
+  border-radius: 20px;
+  padding: 18px;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 5px 5px 0px black;
+}
+
+.caixa-historia p {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ==========================
+   LISTA DE CURIOSIDADES
+========================== */
+.lista-curiosidades {
+  list-style: none;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.lista-curiosidades li {
+  background: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 600px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 3px 3px 0px black;
+}
+
+/* ==========================
+   PERFIL
+========================== */
+.cartao-perfil {
+  background: white;
+  border: 4px solid black;
+  border-radius: 25px;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  box-shadow: 6px 6px 0px black;
+  text-align: left;
+}
+
+.cartao-perfil h2 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #ffcc00;
+  border: 3px solid black;
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 4px 4px 0px black;
+}
+
+.perfil-linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+
+.perfil-label {
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.perfil-valor {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+.rodape {
+  background: #ffcc00;
+  border-top: 4px solid black;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: black;
+  text-shadow: 1px 1px 0px white;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+@media (max-width: 600px) {
+  .conteudo h1 {
+    font-size: 38px;
+  }
+
+  .menu a {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .logo span {
+    font-size: 22px;
+  }
+
+  .personagem-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .personagem-info {
+    text-align: center;
+  }
+}

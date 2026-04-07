@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<main class="conteudo">
+  <h1><%= personagem.nome %></h1>
+
+  <img class="detalhe-img" src="<%= personagem.imagem %>" alt="<%= personagem.nome %>">
+
+  <div class="caixa-historia">
+    <p><%= personagem.historia %></p>
+  </div>
+
+  <h3>Curiosidades</h3>
+  <ul class="lista-curiosidades">
+    <% personagem.curiosidades.forEach(c => { %>
+      <li><%= c %></li>
+    <% }) %>
+  </ul>
+
+  <a class="botao" href="/personagens"> Voltar </a>
+</main>
+
+<%- include("partials/footer") %>
