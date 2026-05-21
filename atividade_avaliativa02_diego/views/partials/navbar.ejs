@@ -1,0 +1,44 @@
+<nav>
+    <div class="nav-logo">
+        Patópolis Wiki
+    </div>
+
+    <div class="nav-links" id="nav-menu">
+        <a href="/" class="nav-item" data-path="/">Início</a>
+        <a href="/personagens" class="nav-item" data-path="/personagens">Personagens</a>
+        <a href="/franquias" class="nav-item" data-path="/franquias">Revistas / Gibis</a>
+        <a href="/franquias/vincular" class="nav-item" data-path="/franquias/vincular">Vincular a um Gibi</a>
+        <a href="/sobre" class="nav-item" data-path="/sobre">Sobre</a>
+        <a href="/sair" class="nav-btn-sair">Sair</a>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentPath = window.location.pathname;
+        const navItems = document.querySelectorAll("#nav-menu .nav-item");
+
+        navItems.forEach(item => {
+            const itemPath = item.getAttribute("data-path");
+            
+            // Se for a página de vincular, valida o caminho completo exato
+            if (itemPath === "/franquias/vincular") {
+                if (currentPath === "/franquias/vincular") {
+                    item.classList.add("ativo");
+                }
+            } 
+            // Se for a página de listagem de revistas comum, garante que NÃO é a de vincular
+            else if (itemPath === "/franquias") {
+                if (currentPath === "/franquias" || currentPath.startsWith("/franquias/edit")) {
+                    item.classList.add("ativo");
+                }
+            } 
+            // Para as outras rotas comuns (/personagens, /sobre, /)
+            else {
+                if (currentPath === itemPath || (itemPath !== "/" && currentPath.startsWith(itemPath))) {
+                    item.classList.add("ativo");
+                }
+            }
+        });
+    });
+</script>

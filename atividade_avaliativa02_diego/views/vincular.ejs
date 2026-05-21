@@ -1,0 +1,72 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="conteudo">
+    <div class="caixa" style="max-width: 800px; margin-bottom: 40px; background: #ffffff;">
+        <h1 style="font-size: 42px; font-weight: 800; margin-bottom: 10px; text-shadow: none;">Vincular Personagem a um Gibi</h1>
+        <p style="font-size: 18px; margin-bottom: 0; color: #333; font-weight: 700;">Defina em qual revista ou história em quadrinhos este integrante costuma aparecer.</p>
+    </div>
+
+    <div class="caixa" style="max-width: 600px; margin-bottom: 50px;">
+        <form action="/participacao/save" method="POST">
+            
+            <div style="margin-bottom: 20px; text-align: left;">
+                <label style="font-weight: 900; font-size: 18px; display: block; margin-bottom: 8px;">Quem é o Personagem?</label>
+                <select name="personagemId" style="width: 100%; padding: 12px; border: 3px solid black; border-radius: 12px; font-weight: 700; font-size: 16px;" required>
+                    <option value="">-- Escolha um habitante --</option>
+                    <% personagens.forEach(personagem => { %>
+                        <option value="<%= personagem.id %>"><%= personagem.nome %> (<%= personagem.funcao %>)</option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 30px; text-align: left;">
+                <label style="font-weight: 900; font-size: 18px; display: block; margin-bottom: 8px;">Em qual Revista / HQ ele aparece?</label>
+                <select name="franquiaId" style="width: 100%; padding: 12px; border: 3px solid black; border-radius: 12px; font-weight: 700; font-size: 16px;" required>
+                    <option value="">-- Selecione o título do gibi --</option>
+                    <% franquias.forEach(franquia => { %>
+                        <option value="<%= franquia.id %>"><%= franquia.nome %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <button type="submit" class="botao" style="width: 100%; cursor: pointer;">Publicar Vínculo</button>
+        </form>
+    </div>
+
+    <div class="caixa" style="max-width: 800px; margin-bottom: 30px; background: #ffcc00;">
+        <h1 style="font-size: 36px; font-weight: 800; margin-bottom: 5px; text-shadow: none; color: black;">Relações Atuais de Publicação</h1>
+        <p style="font-size: 16px; margin-bottom: 0; color: black; font-weight: 700;">Abaixo estão mapeados quais personagens pertencem a quais títulos do catálogo.</p>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto 50px auto;">
+        <table class="tabela-gibi">
+            <thead>
+                <tr>
+                    <th>Personagem</th>
+                    <th>Revista / Gibi Associado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (typeof vinculos !== 'undefined' && vinculos.length > 0) { %>
+                    <% vinculos.forEach(vinculo => { %>
+                        <tr>
+                            <td style="font-weight: 900; color: black;">
+                                <%= vinculo.nomePersonagem %>
+                            </td>
+                            <td style="color: #ff4444; font-weight: 900;">
+                                <%= vinculo.nomeFranquia %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="2" style="color: #777; font-style: italic; text-align: center;">Nenhum vínculo foi estabelecido ainda.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

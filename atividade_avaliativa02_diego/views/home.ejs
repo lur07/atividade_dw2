@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="conteudo">
+    <div class="caixa" style="max-width: 800px; margin-bottom: 30px; background: #ffcc00;">
+        <h1 style="margin-bottom: 0; text-shadow: 2px 2px 0px #fff; font-size: 42px;">Painel do Editor de Patópolis</h1>
+        <p style="margin-bottom: 0; font-size: 18px;">Bem-vindo de volta! Use os blocos abaixo para organizar sua coleção.</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; max-width: 800px; margin: 0 auto 30px auto; justify-content: center;">
+        
+        <div class="caixa" style="flex: 1; min-width: 250px; margin: 0; text-align: center; padding: 20px;">
+            <h3 style="font-weight: 900; font-size: 20px; margin-bottom: 10px; color: #ff4444;">1. Gibis</h3>
+            <p style="font-size: 15px; font-weight: 700; margin-bottom: 15px;">Cadastre novos títulos, volumes e editoras na banca.</p>
+            <a href="/franquias" class="botao" style="font-size: 14px; padding: 8px 15px;">Ir para Gibis</a>
+        </div>
+
+        <div class="caixa" style="flex: 1; min-width: 250px; margin: 0; text-align: center; padding: 20px;">
+            <h3 style="font-weight: 900; font-size: 20px; margin-bottom: 10px; color: #ffcc00; text-shadow: 1px 1px 0px #000;">2. Personagens</h3>
+            <p style="font-size: 15px; font-weight: 700; margin-bottom: 15px;">Adicione novos patos, gansos, cães e heróis da cidade.</p>
+            <a href="/personagens" class="botao" style="font-size: 14px; padding: 8px 15px;">Ir para Personagens</a>
+        </div>
+
+        <div class="caixa" style="flex: 1; min-width: 250px; margin: 0; text-align: center; padding: 20px;">
+            <h3 style="font-weight: 900; font-size: 20px; margin-bottom: 10px; color: #00c853;">3. Vínculos</h3>
+            <p style="font-size: 15px; font-weight: 700; margin-bottom: 15px;">Associe quais personagens aparecem em quais edições.</p>
+            <a href="/franquias/vincular" class="botao" style="font-size: 14px; padding: 8px 15px;">Vincular Agora</a>
+        </div>
+
+    </div>
+
+    <div class="caixa" style="max-width: 800px; text-align: left;">
+        <h2 style="font-size: 20px; font-weight: 900; margin-bottom: 10px; text-align: center;">Dica de Uso</h2>
+        <p style="font-size: 16px; font-weight: 600; line-height: 1.5; margin-bottom: 0; text-align: center;">
+            Para que o vínculo funcione perfeitamente, lembre-se de cadastrar primeiro a Revista/Gibi e depois o Personagem. Assim que vinculados, a lista de personagens mostrará as HQs automaticamente de forma limpa.
+        </p>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

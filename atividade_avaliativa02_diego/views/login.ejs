@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+
+<div class="conteudo" style="display: flex; flex-direction: column; justify-content: center; min-height: 80vh;">
+    <h1>Acesso ao Painel de Patópolis</h1>
+    <p>Faça o login para gerenciar a coleção de gibis e personagens.</p>
+
+    <div class="caixa" style="max-width: 450px; text-align: left;">
+        <h2 style="font-size: 22px; font-weight: 900; margin-bottom: 20px; text-align: center;">Identifique-se, Editor</h2>
+        
+        <form action="/login" method="POST">
+            <div>
+                <label>Usuário ou E-mail:</label>
+                <input type="text" name="usuario" placeholder="Ex: donald_editor" required>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label>Senha de Acesso:</label>
+                <input type="text" name="senha" placeholder="Sua senha secreta" required style="-webkit-text-security: square;">
+            </div>
+
+            <button type="submit" class="botao" style="width: 100%; cursor: pointer;">Entrar no Painel</button>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

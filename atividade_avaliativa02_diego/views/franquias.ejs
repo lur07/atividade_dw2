@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="conteudo">
+    <h1>Gerenciamento de Revistas e Gibis</h1>
+    <p>Cadastre e organize as edições e os títulos que circulam em Patópolis.</p>
+
+    <div class="caixa" style="max-width: 600px; margin-bottom: 40px; text-align: left;">
+        <h2 style="font-size: 24px; font-weight: 900; margin-bottom: 15px; text-align: center;">Nova Revista / Edição</h2>
+        
+        <form action="/franquias/new" method="POST">
+            <div>
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Nome do Gibi / HQ:</label>
+                <input type="text" name="nome" placeholder="Ex: Tio Patinhas, Pato Donald Ed. 01" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Editora / Produtora:</label>
+                <input type="text" name="produtora" placeholder="Ex: Abril, Panini, Disney Comics" required>
+            </div>
+
+            <button type="submit" class="botao" style="width: 100%; cursor: pointer;">Salvar Revista</button>
+        </form>
+    </div>
+
+    <h1>Coleção de Revistas Cadastradas</h1>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <table class="tabela-gibi">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título do Gibi</th>
+                    <th>Editora</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% franquias.forEach(franquia => { %>
+                    <tr>
+                        <td><%= franquia.id %></td>
+                        <td style="color: #ff4444; font-weight: 900;"><%= franquia.nome %></td>
+                        <td><%= franquia.produtora %></td>
+                        <td>
+                            <div style="display: flex; gap: 8px; justify-content: center;">
+                                <a href="/franquias/edit/<%= franquia.id %>" class="botao" style="background: #ffcc00; color: black; font-size: 14px; padding: 6px 12px; border-radius: 8px; box-shadow: 2px 2px 0px black;">
+                                    Editar
+                                </a>
+                                <a href="/franquias/delete/<%= franquia.id %>" class="botao" style="background: #ff4444; font-size: 14px; padding: 6px 12px; border-radius: 8px; box-shadow: 2px 2px 0px black;" onclick="return confirm('Deseja realmente remover esta revista?')">
+                                    Recolher
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

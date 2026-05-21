@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="conteudo">
+    <h1>Editar Revista / Gibi</h1>
+    <p>Modifique as informações do título selecionado.</p>
+
+    <div class="caixa" style="max-width: 600px; margin-bottom: 40px; text-align: left;">
+        <h2 style="font-size: 24px; font-weight: 900; margin-bottom: 15px; text-align: center;">Alterar Dados do Título</h2>
+        
+        <form action="/franquias/update" method="POST">
+            <input type="hidden" name="id" value="<%= franquia.id %>">
+
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Nome do Gibi / HQ:</label>
+                <input type="text" name="nome" value="<%= franquia.nome %>" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Editora / Produtora:</label>
+                <input type="text" name="produtora" value="<%= franquia.produtora %>" required>
+            </div>
+
+            <button type="submit" class="botao" style="width: 100%; cursor: pointer;">Atualizar Revista 📝</button>
+        </form>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="/franquias" class="botao" style="background: #777; font-size: 16px; padding: 10px 20px;">Voltar para a Coleção</a>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

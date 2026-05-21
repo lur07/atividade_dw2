@@ -1,0 +1,68 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="conteudo">
+    <h1>Gerenciamento de Personagens</h1>
+    <p>Cadastre e acompanhe os habitantes oficiais do Estado de Calisota.</p>
+
+    <div class="caixa" style="max-width: 600px; margin-bottom: 40px; text-align: left;">
+        <h2 style="font-size: 24px; font-weight: 900; margin-bottom: 15px; text-align: center;">Novo Personagem</h2>
+        
+        <form action="/personagens/new" method="POST">
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Nome:</label>
+                <input type="text" name="nome" placeholder="Ex: Pato Donald, Professor Pardal" required>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Função / Ocupação:</label>
+                <input type="text" name="funcao" placeholder="Ex: Inventor, Magnata, Aventureiro" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: 800; display: block; margin-bottom: 5px;">Raridade:</label>
+                <input type="text" name="raridade" placeholder="Ex: Lendário, Comum, Raro" required>
+            </div>
+
+            <button type="submit" class="botao" style="width: 100%; cursor: pointer;">Salvar Integrante </button>
+        </form>
+    </div>
+
+    <h1>Lista de Personagens</h1>
+    
+    <div class="lista-personagens">
+        <% personagens.forEach(personagem => { %>
+            <div class="personagem-item">
+                
+                <div class="personagem-img" style="font-size: 32px; font-weight: 900; display: flex; align-items: center; justify-content: center; color: #ffcc00; text-shadow: 2px 2px 0px #000;">
+                    <%= personagem.nome.charAt(0).toUpperCase() %>
+                </div>
+
+                <div class="personagem-info">
+                    <h2><%= personagem.nome %></h2>
+                    <p><strong>Função:</strong> <%= personagem.funcao %></p>
+                    <p><strong>Raridade:</strong> <%= personagem.raridade %></p>
+                    
+                    <p><strong>Aparece em:</strong> 
+                        <% if (personagem.Franquias && personagem.Franquias.length > 0) { %>
+                            <span style="color: #ff4444; font-weight: 900;"><%= personagem.Franquias.map(f => f.nome).join(', ') %></span>
+                        <% } else { %>
+                            <span style="color: #777; font-weight: normal; font-style: italic;">Inédito em revistas</span>
+                        <% } %>
+                    </p>
+                </div>
+
+                <div style="margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="/personagens/edit/<%= personagem.id %>" class="botao" style="background: #ffcc00; color: black; font-size: 14px; padding: 8px 15px; border-radius: 10px;">
+                        Editar
+                    </a>
+                    <a href="/personagens/delete/<%= personagem.id %>" class="botao" style="background: #ff4444; font-size: 14px; padding: 8px 15px; border-radius: 10px;" onclick="return confirm('Deseja realmente deletar o personagem?')">
+                        Excluir
+                    </a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
